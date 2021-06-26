@@ -12,7 +12,7 @@ const NavItem = ({ to, label }) => {
 const StyledNavItem = styled.li`
   display: inline-block;
   list-style: none;
-  line-height: 80px;
+  line-height: 79px;
   margin: 0 5px;
 
   & a {

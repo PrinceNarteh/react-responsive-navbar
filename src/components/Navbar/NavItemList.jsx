@@ -14,8 +14,6 @@ const NavItemList = () => {
 
 const StyledNavItemList = styled.ul`
   float: right;
-  margin-right: 20px;
-
   z-index: 999;
 
   /* .checkbtn #cancel, */

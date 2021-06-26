@@ -6,14 +6,8 @@ import NavItemList from "./NavItemList";
 const Navbar = () => {
   return (
     <StyledNavbar>
-      <input type="checkbox" id="check" />
-      <label for="check" class="checkbtn">
-        <i class="fas fa-bars" id="bars"></i>
-        <i class="fas fa-times" id="cancel"></i>
-      </label>
-
       <Logo />
-
+      <Hamburger />
       <NavItemList />
     </StyledNavbar>
   );
@@ -23,26 +17,18 @@ const StyledNavbar = styled.nav`
   background: #0695b9;
   height: 80px;
   width: 100%;
-
-  .logo {
-    color: white;
-    font-size: 33px;
-    line-height: 80px;
-    padding: 0 100px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
+  padding: 0 100px;
 
   #check {
-    display: none;
+    /* display: none; */
   }
 
   @media only screen and (max-width: 980px) {
-    .logo {
-      padding-left: 40px;
-    }
+    padding: 0 40px;
+  }
 
-    .checkbtn #bars {
+  @media only screen and (max-width: 750px) {
+    .hamburger {
       display: block;
     }
 
@@ -69,16 +55,8 @@ const StyledNavbar = styled.nav`
       }
     }
 
-    #check:checked ~ ul {
+    #toggle:checked .nav__list {
       right: 0;
-    }
-
-    #check:checked ~ label #bars {
-      display: none;
-    }
-
-    #check:checked ~ label #cancel {
-      display: block;
     }
   }
 
