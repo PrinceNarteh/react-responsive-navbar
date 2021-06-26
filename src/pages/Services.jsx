@@ -88,7 +88,7 @@ const StyledServices = styled.div`
     linear-gradient(90deg, rgb(22, 176, 207), rgb(103, 7, 215));
 
   h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5rem, 10vw);
     color: #fff;
   }
 `;

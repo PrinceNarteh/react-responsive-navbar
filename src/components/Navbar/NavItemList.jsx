@@ -15,20 +15,6 @@ const NavItemList = () => {
 const StyledNavItemList = styled.ul`
   float: right;
   z-index: 999;
-
-  /* .checkbtn #cancel, */
-  .checkbtn #bars,
-  .checkbtn #cancel {
-    font-size: 30px;
-    color: #fff;
-    float: right;
-    margin: 25px;
-    cursor: pointer;
-
-    display: none;
-
-    transition: all 0.2s ease;
-  }
 `;
 
 export default NavItemList;

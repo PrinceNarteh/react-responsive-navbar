@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import Logo from "./Logo";
-import Hamburger from "./Hamburger";
 import NavItemList from "./NavItemList";
 
 const Navbar = () => {
   return (
     <StyledNavbar>
       <Logo />
-      <Hamburger />
+      <input type="checkbox" id="toggle" className="nav__checkbox" />
+      <label htmlFor="toggle" className="nav__button">
+        <span className="nav__icon">&nbsp;</span>
+      </label>
       <NavItemList />
     </StyledNavbar>
   );
@@ -19,16 +21,92 @@ const StyledNavbar = styled.nav`
   width: 100%;
   padding: 0 100px;
 
-  #check {
-    /* display: none; */
+  .nav__button {
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    right: 2rem;
+    top: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    display: none;
+    cursor: pointer;
+    z-index: 1000000;
+  }
+
+  .nav__button,
+  .nav__checkbox {
+    display: none;
+  }
+
+  .nav__icon {
+    position: relative;
+  }
+
+  .nav__icon,
+  .nav__icon::before,
+  .nav__icon::after {
+    width: 30px;
+    height: 4px;
+    border-radius: 20px;
+    display: inline-block;
+    background-color: #fff;
+  }
+
+  .nav__icon::after,
+  .nav__icon::before {
+    content: "";
+    left: 0;
+    position: absolute;
+    transition: all 0.2s;
+  }
+
+  .nav__icon::before {
+    top: -8px;
+  }
+
+  .nav__icon::after {
+    top: 8px;
+  }
+
+  .nav__button:hover .nav__icon::before {
+    top: -10px;
+  }
+
+  .nav__button:hover .nav__icon::after {
+    top: 10px;
+  }
+
+  .nav__checkbox:checked + .nav__button .nav__icon {
+    background: transparent;
+  }
+
+  .nav__checkbox:checked + .nav__button .nav__icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .nav__checkbox:checked + .nav__button .nav__icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .nav__checkbox:checked ~ ul {
+    right: 0;
   }
 
   @media only screen and (max-width: 980px) {
     padding: 0 40px;
+
+    ul li a {
+      font-size: 14px;
+      padding: 10px 10px;
+    }
   }
 
-  @media only screen and (max-width: 750px) {
-    .hamburger {
+  @media only screen and (max-width: 800px) {
+    .nav__button {
       display: block;
     }
 
@@ -38,7 +116,6 @@ const StyledNavbar = styled.nav`
       width: 100%;
       height: 100vh;
       text-align: center;
-      /* top: 80px; */
 
       right: -100%;
       margin-right: 0;
@@ -47,22 +124,38 @@ const StyledNavbar = styled.nav`
 
       & li {
         display: block;
-        margin: 40px 0;
+        margin: 10px 0;
 
         & a {
           font-size: 20px;
         }
       }
     }
-
-    #toggle:checked .nav__list {
-      right: 0;
-    }
   }
 
   @media only screen and (max-width: 600px) {
     .logo {
       font-size: 30px;
+    }
+  }
+
+  @media screen and (max-width: 300px) {
+    .nav__icon,
+    .nav__icon::before,
+    .nav__icon::after {
+      width: 20px;
+      height: 3px;
+      border-radius: 20px;
+      display: inline-block;
+      background-color: #fff;
+    }
+
+    .nav__icon::before {
+      top: -7px;
+    }
+
+    .nav__icon::after {
+      top: 7px;
     }
   }
 `;

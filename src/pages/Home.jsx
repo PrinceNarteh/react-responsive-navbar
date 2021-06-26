@@ -88,7 +88,7 @@ const StyledHome = styled.div`
     linear-gradient(0deg, #2625e3, #0bbaef);
 
   h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5rem, 10vw);
     color: #fff;
   }
 `;

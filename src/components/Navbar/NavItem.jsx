@@ -18,6 +18,7 @@ const StyledNavItem = styled.li`
   & a {
     color: #fff;
     font-size: 17px;
+    font-weight: 600;
     padding: 10px 15px;
     text-decoration: none;
     text-transform: uppercase;

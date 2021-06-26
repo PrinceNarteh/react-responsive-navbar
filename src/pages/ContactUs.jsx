@@ -28,7 +28,7 @@ const StyledContactUs = styled.div`
   );
 
   h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5rem, 10vw);
     color: #fff;
   }
 `;
